@@ -1,0 +1,51 @@
+Find the Second Largest Element in an Array
+Write a program to find the second-largest element in an array of integers without using any sorting
+algorithms or built-in array functions.
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+
+CODE IN JAVASCRIPT:
+-------------------
+function secondlargest(hash) {
+    if (hash.length < 2) {
+        return "No Element.";
+    }
+
+    let fl = -Infinity;
+    let sl = -Infinity;
+
+    for (let ele of hash) {
+        if (ele > fl) {
+            sl = fl;
+            fl = ele;
+        } else if (ele > sl && ele !== fl) {
+            sl = ele;
+        }
+    }
+
+    return sl === -Infinity ? " There is no second largest element in the array." : sl;
+}
+let input = prompt("Enter the elements of the array:");
+let hash = input.split(" ").map(Number);
+
+let agile = secondlargest(hash);
+alert("The second largest element is: " + agile);
+
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+SAMPLE INPUT 1: Enter the elements of the array:0 1 2 3 4 5 6 7
+SAMPLE OUTPUT 1: The second largest element is: 6
+
+SAMPLE INPUT 2: Enter the elements of the array:2 2 2 2 2 2 2 
+SAMPLE OUTPUT 2: The second largest element is: There is no second largest element in the array.
+
+SAMPLE INPUT 3: Enter the elements of the array:-48 -76 -5 -4
+SAMPLE OUTPUT 3:The second largest element is: -5
+
+SAMPLE INPUT 4: Enter the elements of the array:-56 -89 56 0 -36
+SAMPLE OUTPUT 4: The second largest element is: 0
+
+SAMPLE INPUT 5: Enter the elements of the array:1
+SAMPLE OUTPUT 5:The second largest element is: No Element.
+
+
